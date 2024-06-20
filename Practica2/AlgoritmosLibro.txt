@@ -1,0 +1,26 @@
+Algoritmo TRIM (L, alpha)
+ Let m be the length of L
+ L' = [y1]   #y1 es el primer elemento de L
+ last = y1
+ for i = 2 to m
+       if y_i > last*(1 + alpha)
+               append y_i onto the end of L'
+               last = y_i
+ return L'
+
+
+APPROX-SUBSET-SUM(S, t, epsilon)
+ n = |S|
+ L_0 = [0]
+ for i = 1 to n 
+       L_i = MERGE-LISTS(L_{i-1}, L_{i-1} + x_i)
+       L_i = TRIM (L_i, epsilon/2n)
+       Remove from L_i every element that is greater than t
+ let z* be the largest element in L_n
+ return z*
+ 
+ Donde S = {x1,x2,x3,...,xn}
+ 
+ Algoritmo MERGE_LISTS (L1,L2) returns the sorted list that is the merge 
+ of its two sorted input lists  L1 y L2 with duplicate values removed. 
+ 
